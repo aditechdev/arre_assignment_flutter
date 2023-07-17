@@ -1,5 +1,6 @@
 import 'package:arre_assignment_flutter/bloc/system_bloc.dart';
 import 'package:arre_assignment_flutter/component/custom_app_bar.dart';
+import 'package:arre_assignment_flutter/component/myAccountComponent/custom_switch_button.dart';
 import 'package:arre_assignment_flutter/component/myAccountComponent/my_account__component_lib.dart'
     as wid;
 
@@ -87,6 +88,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                 title: "Logout",
                 onTap: () {},
               ),
+              const CustomSwitch(),
               const Spacer(),
               SvgPicture.asset(AssetSvg.appLogo),
               const SizedBox(

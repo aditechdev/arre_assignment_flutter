@@ -11,5 +11,7 @@ class AssetIcon {
   static const String rightArrowIcon = "assets/icon/right_arrow_icon.svg";
   static const String switchDarkIcon = "assets/icon/switch_dark_icon.svg";
   static const String switchLightIcon = "assets/icon/switch_light_icon.svg";
+  static const String switchDarkIconPNG = "assets/icon/switch_dark_mode_icon.png";
+  static const String switchLightIconPNG = "assets/icon/switch_light_mode_icon.png";
 
 }
