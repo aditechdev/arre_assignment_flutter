@@ -1,4 +1,6 @@
-import 'package:arre_assignment_flutter/features/settings_page.dart';
+import 'package:arre_assignment_flutter/config/routes/app_routes.dart';
+import 'package:arre_assignment_flutter/config/routes/route_path.dart';
+import 'package:arre_assignment_flutter/features/my_account_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +19,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SettingsPage(),
+      initialRoute: Routes.splashScreen,
+      routes: AppRoutes.routes,
     );
   }
 }
