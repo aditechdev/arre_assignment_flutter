@@ -62,13 +62,29 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                 title: "Edit My Languages",
                 onTap: () {},
               ),
-              wid.CustomElevatedButtonWidget(
-                prefixIcon: AssetIcon.logOutIcon,
-                title: "Logout",
+              wid.CustomTextButtonWidget(
+                title: "Customize Interface",
                 onTap: () {},
               ),
               wid.CustomTextButtonWidget(
                 title: "Terms of Service",
+                onTap: () {},
+              ),
+              wid.CustomTextButtonWidget(
+                title: "Privacy Policy",
+                onTap: () {},
+              ),
+              wid.CustomTextButtonWidget(
+                title: "Temporarily Deactivate My Account",
+                onTap: () {},
+              ),
+              wid.CustomTextButtonWidget(
+                title: "Permanent Delete My Account",
+                onTap: () {},
+              ),
+              wid.CustomElevatedButtonWidget(
+                prefixIcon: AssetIcon.logOutIcon,
+                title: "Logout",
                 onTap: () {},
               ),
               const Spacer(),
