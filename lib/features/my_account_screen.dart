@@ -1,12 +1,11 @@
 import 'package:arre_assignment_flutter/bloc/system_bloc.dart';
 import 'package:arre_assignment_flutter/component/custom_app_bar.dart';
-import 'package:arre_assignment_flutter/component/myAccountComponent/custom_switch_button.dart';
 import 'package:arre_assignment_flutter/component/myAccountComponent/my_account__component_lib.dart'
     as wid;
-
 import 'package:arre_assignment_flutter/config/r.dart';
 import 'package:arre_assignment_flutter/config/text_style.dart' as tstyle;
 import 'package:arre_assignment_flutter/config/theme/theme_manager.dart';
+import 'package:color_log/color_log.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -63,8 +62,11 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                 title: "Edit My Languages",
                 onTap: () {},
               ),
-              const wid.CustomSwitchComponent(
+              wid.CustomSwitchComponent(
                 title: "Customize Interface",
+                onTap: (v) {
+                  clog.checkSuccess(v, "Switch Value");
+                },
               ),
 
               wid.CustomTextButtonWidget(

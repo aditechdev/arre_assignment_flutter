@@ -13,7 +13,7 @@ class CustomSwitchComponent extends StatefulWidget {
   });
   final String title;
   final String suffixIcon;
-  final VoidCallback? onTap;
+  final Function(bool)? onTap;
 
   @override
   State<CustomSwitchComponent> createState() => _CustomSwitchComponentState();
@@ -22,12 +22,17 @@ class CustomSwitchComponent extends StatefulWidget {
 class _CustomSwitchComponentState extends State<CustomSwitchComponent> {
   bool _switchValue = false;
 
+  toggleSwitch(v) {
+    setState(() => _switchValue = v);
+    widget.onTap!(v);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         TextButton(
-          onPressed: widget.onTap,
+          onPressed: () {},
           child: Row(
             children: [
               Text(
@@ -59,14 +64,7 @@ class _CustomSwitchComponentState extends State<CustomSwitchComponent> {
                   activeColor: Colors.transparent,
                   trackColor: Colors.transparent,
                   value: _switchValue,
-                  onChanged: (v) {
-                    setState(
-                      () {
-                        _switchValue = v;
-                        // _switchValue = v;
-                      },
-                    );
-                  },
+                  onChanged: toggleSwitch,
                 ),
               )
             ],
