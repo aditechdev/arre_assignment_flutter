@@ -32,7 +32,7 @@ class _CustomSwitchComponentState extends State<CustomSwitchComponent> {
     return Column(
       children: [
         TextButton(
-          onPressed: () {},
+          onPressed: null,
           child: Row(
             children: [
               Text(
