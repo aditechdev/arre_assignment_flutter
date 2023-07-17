@@ -63,6 +63,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/svg/
+    - assets/icon/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -87,6 +88,44 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
-  #
+  fonts:
+    - family: Ubuntu
+      fonts:
+        - asset: assets/fonts/ubuntu/Ubuntu-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/ubuntu/Ubuntu-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/ubuntu/Ubuntu-Italic.ttf
+          style: italic
+        - asset: assets/fonts/ubuntu/Ubuntu-Light.ttf
+          weight: 300
+        - asset: assets/fonts/ubuntu/Ubuntu-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/ubuntu/Ubuntu-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/ubuntu/Ubuntu-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/ubuntu/Ubuntu-Regular.ttf
+    - family: Acumin
+      fonts:
+        - asset: assets/fonts/acumin_pro/Acumin-Pro-Black.ttf
+          weight: 900
+        - asset: assets/fonts/acumin_pro/Acumin-Pro-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/acumin_pro/Acumin-Pro-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/acumin_pro/Acumin-Pro-Light.ttf
+          weight: 300
+        - asset: assets/fonts/acumin_pro/Acumin-Pro-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/acumin_pro/Acumin-Pro-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/acumin_pro/Acumin-Pro-Semibold.ttf
+          weight: 600
+        - asset: assets/fonts/acumin_pro/Acumin-Pro-Thin.ttf
+          weight: 100
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

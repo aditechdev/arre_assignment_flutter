@@ -1,4 +1,5 @@
 import 'package:arre_assignment_flutter/config/theme/theme_manager.dart';
+import 'package:arre_assignment_flutter/config/text_style.dart' as tstyle;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -21,7 +22,9 @@ class MyAppTheme {
       useMaterial3: true,
       appBarTheme: AppBarTheme(
         elevation: 0,
+        toolbarHeight: 87,
         centerTitle: false,
+        titleTextStyle: tstyle.appBarTitleTextStyle,
         backgroundColor: th.appBackgroundColor,
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: th.statusBarColor,

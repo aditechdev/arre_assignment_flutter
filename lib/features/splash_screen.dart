@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: SvgPicture.asset(SvgAsset.appLogo),
+            child: SvgPicture.asset(AssetSvg.appLogo),
           ),
         ],
       ),

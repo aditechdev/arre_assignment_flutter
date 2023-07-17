@@ -16,4 +16,7 @@ class LightThemeColors implements ColorTheme {
 
   @override
   Color get appBarShadowColor => const Color(0xff41595C);
+
+  @override
+  Color get appBarTitleColor => const Color(0xffE4F1EE);
 }
