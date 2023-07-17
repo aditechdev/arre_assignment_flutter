@@ -1,6 +1,7 @@
 import 'package:arre_assignment_flutter/config/app_init.dart';
 import 'package:arre_assignment_flutter/config/routes/app_routes.dart';
 import 'package:arre_assignment_flutter/config/routes/route_path.dart';
+import 'package:arre_assignment_flutter/config/theme/my_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,10 +16,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Arre',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: myAppTheme.myAppTheme(),
+      
+      //  ThemeData(
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      //   useMaterial3: true,
+      // ),
       initialRoute: Routes.splashScreen,
       routes: AppRoutes.routes,
     );
