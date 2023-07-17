@@ -10,3 +10,9 @@ TextStyle appBarTitleTextStyle = TextStyle(
   fontFamily: fontAcumin,
   fontWeight: FontWeight.bold,
 );
+TextStyle btnTextStyle = TextStyle(
+  fontSize: 14,
+  color: th.btnTextColor,
+  fontFamily: fontAcumin,
+  fontWeight: FontWeight.w700,
+);

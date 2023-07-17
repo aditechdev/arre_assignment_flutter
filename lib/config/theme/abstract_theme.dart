@@ -11,4 +11,9 @@ abstract class ColorTheme {
 
   // Scafold
   Color get scaffoldBackgroundColor;
+
+  // Solid Button
+  Color get btnBackgroundColor;
+  Color get btnTextColor;
+
 }
