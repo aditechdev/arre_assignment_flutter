@@ -33,9 +33,6 @@ class CustomTextButtonWidget extends StatelessWidget {
             ],
           ),
         ),
-        // const SizedBox(
-        //   height: 15,
-        // )
       ],
     );
   }

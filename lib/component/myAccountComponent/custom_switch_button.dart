@@ -1,48 +1,78 @@
 import 'package:arre_assignment_flutter/config/r.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:arre_assignment_flutter/config/text_style.dart' as tstyle;
+
 import 'package:flutter/material.dart';
 
-class CustomSwitch extends StatefulWidget {
-  const CustomSwitch({super.key});
+class CustomSwitchComponent extends StatefulWidget {
+  const CustomSwitchComponent({
+    super.key,
+    required this.title,
+    this.suffixIcon = AssetIcon.rightArrowIcon,
+    this.onTap,
+  });
+  final String title;
+  final String suffixIcon;
+  final VoidCallback? onTap;
 
   @override
-  State<CustomSwitch> createState() => _CustomSwitchState();
+  State<CustomSwitchComponent> createState() => _CustomSwitchComponentState();
 }
 
-class _CustomSwitchState extends State<CustomSwitch> {
+class _CustomSwitchComponentState extends State<CustomSwitchComponent> {
   bool _switchValue = false;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // width: 70,
-      height: 40,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        image: DecorationImage(
-          image: AssetImage(
-            _switchValue
-                ? AssetIcon.switchLightIconPNG
-                : AssetIcon.switchDarkIconPNG,
+    return Column(
+      children: [
+        TextButton(
+          onPressed: widget.onTap,
+          child: Row(
+            children: [
+              Text(
+                widget.title,
+                style: tstyle.txtBtnTextStyle,
+              ),
+              const Spacer(),
+              Container(
+                width: 63,
+                height: 40,
+                padding: EdgeInsets.zero,
+                margin: EdgeInsets.zero,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                      color: _switchValue
+                          ? Colors.white
+                          : const Color(0xff696969)),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      _switchValue
+                          ? AssetIcon.switchLightIconPNG
+                          : AssetIcon.switchDarkIconPNG,
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: CupertinoSwitch(
+                  activeColor: Colors.transparent,
+                  trackColor: Colors.transparent,
+                  value: _switchValue,
+                  onChanged: (v) {
+                    setState(
+                      () {
+                        _switchValue = v;
+                        // _switchValue = v;
+                      },
+                    );
+                  },
+                ),
+              )
+            ],
           ),
-          fit: BoxFit.cover,
         ),
-      ),
-
-      child: Switch(
-        value: _switchValue,
-        onChanged: (value) {
-          setState(() {
-            _switchValue = value;
-          });
-        },
-        activeColor: Colors.transparent,
-        activeTrackColor: Colors.transparent,
-        inactiveThumbColor: Colors.transparent,
-        inactiveTrackColor: Colors.transparent,
-        // trackColor:
-        //     MaterialStateColor.resolveWith((states) => Colors.transparent),
-        // thumbColor: MaterialStateColor.resolveWith((states) => Colors.amber),
-      ),
+      ],
     );
   }
 }

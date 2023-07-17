@@ -63,10 +63,10 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                 title: "Edit My Languages",
                 onTap: () {},
               ),
-              wid.CustomTextButtonWidget(
+              const wid.CustomSwitchComponent(
                 title: "Customize Interface",
-                onTap: () {},
               ),
+
               wid.CustomTextButtonWidget(
                 title: "Terms of Service",
                 onTap: () {},
@@ -88,7 +88,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                 title: "Logout",
                 onTap: () {},
               ),
-              const CustomSwitch(),
+              // const CustomSwitch(),
               const Spacer(),
               SvgPicture.asset(AssetSvg.appLogo),
               const SizedBox(
