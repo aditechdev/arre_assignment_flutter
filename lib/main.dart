@@ -1,10 +1,10 @@
+import 'package:arre_assignment_flutter/config/app_init.dart';
 import 'package:arre_assignment_flutter/config/routes/app_routes.dart';
 import 'package:arre_assignment_flutter/config/routes/route_path.dart';
-import 'package:arre_assignment_flutter/features/my_account_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  appInit();
 }
 
 class MyApp extends StatelessWidget {
