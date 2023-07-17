@@ -19,10 +19,13 @@ class LightThemeColors implements ColorTheme {
 
   @override
   Color get appBarTitleColor => const Color(0xffE4F1EE);
-  
+
   @override
-  Color get btnBackgroundColor => Color(0xff1E2630);
-  
+  Color get btnBackgroundColor => const Color(0xff1E2630);
+
   @override
-  Color get btnTextColor => Color(0xffBCC8C8);
+  Color get btnTextColor => const Color(0xffBCC8C8);
+
+  @override
+  Color get versionTextColor => const Color(0xff4BC7B6);
 }

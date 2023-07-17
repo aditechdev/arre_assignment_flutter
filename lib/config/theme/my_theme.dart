@@ -9,29 +9,37 @@ class MyAppTheme {
   /// Current Theme of the App
   ThemeData myAppTheme() {
     return ThemeData(
-      primaryColor: th.primaryColor,
-      scaffoldBackgroundColor: th.scaffoldBackgroundColor,
-      pageTransitionsTheme: PageTransitionsTheme(
-        builders: {
-          TargetPlatform.android:
-              CustomPageTransitionsBuilder(), // Customize transitions for Android
-          TargetPlatform.iOS:
-              CustomPageTransitionsBuilder(), // Customize transitions for iOS
-        },
-      ),
-      useMaterial3: true,
-      appBarTheme: AppBarTheme(
-        elevation: 0,
-        toolbarHeight: 87,
-        centerTitle: false,
-        titleTextStyle: tstyle.appBarTitleTextStyle,
-        backgroundColor: th.appBackgroundColor,
-        systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: th.statusBarColor,
-          statusBarBrightness: Brightness.light,
+        primaryColor: th.primaryColor,
+        scaffoldBackgroundColor: th.scaffoldBackgroundColor,
+        pageTransitionsTheme: PageTransitionsTheme(
+          builders: {
+            TargetPlatform.android:
+                CustomPageTransitionsBuilder(), // Customize transitions for Android
+            TargetPlatform.iOS:
+                CustomPageTransitionsBuilder(), // Customize transitions for iOS
+          },
         ),
-      ),
-    );
+        useMaterial3: true,
+        appBarTheme: AppBarTheme(
+          elevation: 0,
+          toolbarHeight: 87,
+          centerTitle: false,
+          titleTextStyle: tstyle.appBarTitleTextStyle,
+          backgroundColor: th.appBackgroundColor,
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: th.statusBarColor,
+            statusBarBrightness: Brightness.light,
+          ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: th.btnBackgroundColor,
+            padding: const EdgeInsets.all(13),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ));
   }
 }
 

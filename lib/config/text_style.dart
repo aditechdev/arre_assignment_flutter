@@ -16,3 +16,11 @@ TextStyle btnTextStyle = TextStyle(
   fontFamily: fontAcumin,
   fontWeight: FontWeight.w700,
 );
+
+TextStyle versionTextStyle = TextStyle(
+    fontSize: 14,
+    color: th.versionTextColor,
+    fontFamily: fontAcumin,
+    fontWeight: FontWeight.w400,
+    decoration: TextDecoration.underline,
+    decorationColor: th.versionTextColor);

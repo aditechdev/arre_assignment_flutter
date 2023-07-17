@@ -1,60 +1,93 @@
+import 'package:arre_assignment_flutter/bloc/system_bloc.dart';
 import 'package:arre_assignment_flutter/component/custom_app_bar.dart';
 import 'package:arre_assignment_flutter/component/myAccountComponent/my_account_lib.dart'
     as wid;
 
 import 'package:arre_assignment_flutter/config/r.dart';
+import 'package:arre_assignment_flutter/config/text_style.dart' as tstyle;
 import 'package:arre_assignment_flutter/config/theme/theme_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class MyAccountScreen extends StatelessWidget {
+class MyAccountScreen extends StatefulWidget {
   const MyAccountScreen({
     super.key,
   });
 
   @override
+  State<MyAccountScreen> createState() => _MyAccountScreenState();
+}
+
+class _MyAccountScreenState extends State<MyAccountScreen> {
+  String _version = "";
+  @override
+  void initState() {
+    _getAppVersion();
+    super.initState();
+  }
+
+  _getAppVersion() async {
+    String v = await systemBloc.getAppVersion();
+    setState(() {
+      _version = v;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     var th = theme.currentTheme;
 
-    return Scaffold(
-      appBar: const CustomAppBar(
-        appBarTitle: "My Account",
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 9),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            wid.CustomElevatedButtonWidget(
-              prefixIcon: AssetIcon.communityCodeOfConductIcon,
-              suffixIcon: AssetIcon.rightArrowIcon,
-              title: "Community Code of Conduct",
-            ),
-            wid.CustomElevatedButtonWidget(
-              prefixIcon: AssetIcon.helpCenterIcon,
-              suffixIcon: AssetIcon.rightArrowIcon,
-              title: "Help Center",
-            ),
-            wid.CustomElevatedButtonWidget(
-              prefixIcon: AssetIcon.editMyLanguageIcon,
-              suffixIcon: AssetIcon.rightArrowIcon,
-              title: "Edit My Languages",
-            ),
-            wid.CustomElevatedButtonWidget(
-              prefixIcon: AssetIcon.logOutIcon,
-              suffixIcon: AssetIcon.rightArrowIcon,
-              title: "Logout",
-            ),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: const CustomAppBar(
+          appBarTitle: "My Account",
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 9),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              wid.CustomElevatedButtonWidget(
+                prefixIcon: AssetIcon.communityCodeOfConductIcon,
+                suffixIcon: AssetIcon.rightArrowIcon,
+                title: "Community Code of Conduct",
+                onTap: () {},
+              ),
+              wid.CustomElevatedButtonWidget(
+                prefixIcon: AssetIcon.helpCenterIcon,
+                suffixIcon: AssetIcon.rightArrowIcon,
+                title: "Help Center",
+                onTap: () {},
+              ),
+              wid.CustomElevatedButtonWidget(
+                prefixIcon: AssetIcon.editMyLanguageIcon,
+                suffixIcon: AssetIcon.rightArrowIcon,
+                title: "Edit My Languages",
+                onTap: () {},
+              ),
+              wid.CustomElevatedButtonWidget(
+                prefixIcon: AssetIcon.logOutIcon,
+                suffixIcon: AssetIcon.rightArrowIcon,
+                title: "Logout",
+                onTap: () {},
+              ),
+              
+              const Spacer(),
+              SvgPicture.asset(AssetSvg.appLogo),
+              const SizedBox(
+                height: 16,
+              ),
+              Text(
+                "Version $_version",
+                style: tstyle.versionTextStyle,
+              ),
+              const SizedBox(
+                height: 24,
+              ),
+            ],
+          ),
         ),
       ),
     );
-    // Scaffold(
-    //   appBar: AppBar(
-    //     backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-    //     title: const Text("Setting Page"),
-    //   ),
-    //   body: const Center(child: Text("data")),
-    // );
   }
 }

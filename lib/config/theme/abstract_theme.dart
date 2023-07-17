@@ -16,4 +16,6 @@ abstract class ColorTheme {
   Color get btnBackgroundColor;
   Color get btnTextColor;
 
+  //Other
+  Color get versionTextColor;
 }
