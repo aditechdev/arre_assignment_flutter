@@ -1,6 +1,6 @@
 import 'package:arre_assignment_flutter/bloc/system_bloc.dart';
 import 'package:arre_assignment_flutter/component/custom_app_bar.dart';
-import 'package:arre_assignment_flutter/component/myAccountComponent/my_account_lib.dart'
+import 'package:arre_assignment_flutter/component/myAccountComponent/my_account__component_lib.dart'
     as wid;
 
 import 'package:arre_assignment_flutter/config/r.dart';
@@ -49,29 +49,28 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
             children: [
               wid.CustomElevatedButtonWidget(
                 prefixIcon: AssetIcon.communityCodeOfConductIcon,
-                suffixIcon: AssetIcon.rightArrowIcon,
                 title: "Community Code of Conduct",
                 onTap: () {},
               ),
               wid.CustomElevatedButtonWidget(
                 prefixIcon: AssetIcon.helpCenterIcon,
-                suffixIcon: AssetIcon.rightArrowIcon,
                 title: "Help Center",
                 onTap: () {},
               ),
               wid.CustomElevatedButtonWidget(
                 prefixIcon: AssetIcon.editMyLanguageIcon,
-                suffixIcon: AssetIcon.rightArrowIcon,
                 title: "Edit My Languages",
                 onTap: () {},
               ),
               wid.CustomElevatedButtonWidget(
                 prefixIcon: AssetIcon.logOutIcon,
-                suffixIcon: AssetIcon.rightArrowIcon,
                 title: "Logout",
                 onTap: () {},
               ),
-              
+              wid.CustomTextButtonWidget(
+                title: "Terms of Service",
+                onTap: () {},
+              ),
               const Spacer(),
               SvgPicture.asset(AssetSvg.appLogo),
               const SizedBox(

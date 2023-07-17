@@ -1,3 +1,4 @@
+import 'package:arre_assignment_flutter/config/r.dart';
 import 'package:arre_assignment_flutter/config/text_style.dart' as tstyle;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,7 +8,7 @@ class CustomElevatedButtonWidget extends StatelessWidget {
       {super.key,
       required this.prefixIcon,
       required this.title,
-      required this.suffixIcon,
+      this.suffixIcon = AssetIcon.rightArrowIcon,
       this.onTap});
   final String prefixIcon;
   final String title;

@@ -39,6 +39,14 @@ class MyAppTheme {
               borderRadius: BorderRadius.circular(8),
             ),
           ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.all(13),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
         ));
   }
 }

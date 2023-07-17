@@ -16,6 +16,12 @@ TextStyle btnTextStyle = TextStyle(
   fontFamily: fontAcumin,
   fontWeight: FontWeight.w700,
 );
+TextStyle txtBtnTextStyle = TextStyle(
+  fontSize: 14,
+  color: th.btnTextColor,
+  fontFamily: fontAcumin,
+  fontWeight: FontWeight.w400,
+);
 
 TextStyle versionTextStyle = TextStyle(
     fontSize: 14,
