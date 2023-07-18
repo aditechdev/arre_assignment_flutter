@@ -1,3 +1,4 @@
+import 'package:arre_assignment_flutter/bloc/language_bloc.dart';
 import 'package:arre_assignment_flutter/bloc/system_bloc.dart';
 import 'package:arre_assignment_flutter/component/custom_app_bar.dart';
 import 'package:arre_assignment_flutter/component/myAccountComponent/my_account_component_lib.dart'
@@ -8,6 +9,7 @@ import 'package:arre_assignment_flutter/cors/common_utils.dart';
 import 'package:color_log/color_log.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MyAccountScreen extends StatefulWidget {
   const MyAccountScreen({
@@ -23,8 +25,18 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
   @override
   void initState() {
     _getAppVersion();
+    // context.read(languageProvider.notifier).fetchLanguage();
+
+    // languageNotifier.fetchLanguage();
+    // fetchData();
+    // context!.read(languageprovider.notifier).
+
     super.initState();
   }
+
+  // fetchData() async{
+  //    await languageNotifier.fetchLanguage();
+  // }
 
   _getAppVersion() async {
     String v = await systemBloc.getAppVersion();
@@ -33,7 +45,10 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
     });
   }
 
-  showLangueEditBottomSheet() {
+  showLangueEditBottomSheet(
+    WidgetRef ref,
+  ) {
+    ref.read(languageprovider.notifier).fetchList();
     cUtils.showBottomSheet(
         context: context,
         bottomSheetComponent: const wid.LanguageBottomSheetComponent());
@@ -63,10 +78,15 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                 title: "Help Center",
                 onTap: () {},
               ),
-              wid.CustomElevatedButtonWidget(
-                prefixIcon: AssetIcon.editMyLanguageIcon,
-                title: "Edit My Languages",
-                onTap: showLangueEditBottomSheet,
+              Consumer(
+                builder: (BuildContext context, WidgetRef ref, Widget? child) {
+                  return wid.CustomElevatedButtonWidget(
+                      prefixIcon: AssetIcon.editMyLanguageIcon,
+                      title: "Edit My Languages",
+                      onTap: () {
+                        showLangueEditBottomSheet(ref);
+                      });
+                },
               ),
               wid.CustomSwitchComponent(
                 title: "Customize Interface",

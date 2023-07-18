@@ -16,7 +16,9 @@ class LanguageSheetPositiveButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: th.bottomSheetPositiveBtnBackground,
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pop(context);
+      },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Text(

@@ -1,9 +1,11 @@
+import 'package:arre_assignment_flutter/bloc/language_bloc.dart';
 import 'package:arre_assignment_flutter/config/text_style.dart' as tstyle;
 import 'package:arre_assignment_flutter/config/theme/abstract_theme.dart';
-import 'package:arre_assignment_flutter/data/language_list.dart';
+import 'package:arre_assignment_flutter/model/language_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LangaugeGridComponent extends StatelessWidget {
+class LangaugeGridComponent extends ConsumerWidget {
   const LangaugeGridComponent({
     super.key,
     required this.th,
@@ -12,20 +14,22 @@ class LangaugeGridComponent extends StatelessWidget {
   final ColorTheme th;
 
   @override
-  Widget build(BuildContext context) {
-    Color isActive(int index) {
-      var c = (index == 0)
+  Widget build(BuildContext context, WidgetRef ref) {
+    final languageValue = ref.watch(languageprovider);
+
+    Color isActive(bool isSelected) {
+      var c = (isSelected)
           ? th.languageSheetActiveColor
           : th.languageSheetInactiveColor;
       return c;
     }
 
-    TextStyle setStyle({required int index, isTitile = true}) {
+    TextStyle setStyle({required bool isSelected, isTitile = true}) {
       var inactiveStyle = isTitile
           ? tstyle.languageSheetInActiveTitleTextStyle
           : tstyle.languageSheetInActiveDescTextStyle;
       var t =
-          (index == 0) ? tstyle.languageSheetActiveTextStyle : inactiveStyle;
+          (isSelected) ? tstyle.languageSheetActiveTextStyle : inactiveStyle;
       return t;
     }
 
@@ -37,29 +41,73 @@ class LangaugeGridComponent extends StatelessWidget {
         crossAxisSpacing: 20,
         mainAxisSpacing: 31,
       ),
-      itemCount: languageList.length,
+      itemCount: languageValue.length,
       itemBuilder: (context, index) {
-        var lang = languageList[index];
+        var lang = languageValue[index];
 
         return Stack(
           clipBehavior: Clip.none,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                  color: th.langaugeSheetBoxColor,
-                  border: Border.all(color: isActive(index)),
-                  borderRadius: const BorderRadius.all(Radius.circular(8))),
-              child: LangElement(
-                lang: lang,
-                descTextStyle: setStyle(index: index, isTitile: false),
-                titleTextStyle: setStyle(index: index, isTitile: true),
+            GestureDetector(
+              onTap: () {
+                ref.read(languageprovider.notifier).updateList(lang);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    color: th.langaugeSheetBoxColor,
+                    border: Border.all(color: isActive(lang.isSelected!)),
+                    borderRadius: const BorderRadius.all(Radius.circular(8))),
+                child: LangElement(
+                  lang: lang,
+                  descTextStyle:
+                      setStyle(isSelected: lang.isSelected!, isTitile: false),
+                  titleTextStyle:
+                      setStyle(isSelected: lang.isSelected!, isTitile: true),
+                ),
               ),
             ),
-            if (index == 0) CheckWidget(th: th)
+            if (lang.isSelected!) CheckWidget(th: th)
           ],
         );
       },
     );
+    // error: (error, stackTrace) => Text('Error fetching data: $error'),
+    // loading: () => const CircularProgressIndicator());
+
+    // return languageValue.when(
+    // data: (languages) {
+    // return GridView.builder(
+    //   shrinkWrap: true,
+    //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+    //     crossAxisCount: 3,
+    //     childAspectRatio: 4 / 2,
+    //     crossAxisSpacing: 20,
+    //     mainAxisSpacing: 31,
+    //   ),
+    //   itemCount: languageValue.length,
+    //   itemBuilder: (context, index) {
+    //     var lang = languageValue[index];
+
+    //     return Stack(
+    //       clipBehavior: Clip.none,
+    //       children: [
+    //         Container(
+    //           decoration: BoxDecoration(
+    //               color: th.langaugeSheetBoxColor,
+    //               border: Border.all(color: isActive(index)),
+    //               borderRadius:
+    //                   const BorderRadius.all(Radius.circular(8))),
+    //           child: LangElement(
+    //             lang: lang,
+    //             descTextStyle: setStyle(index: index, isTitile: false),
+    //             titleTextStyle: setStyle(index: index, isTitile: true),
+    //           ),
+    //         ),
+    //         if (index == 0) CheckWidget(th: th)
+    //       ],
+    //     );
+    //   },
+    // );
   }
 }
 
@@ -102,7 +150,7 @@ class LangElement extends StatelessWidget {
       required this.lang,
       required this.titleTextStyle,
       required this.descTextStyle});
-  final Map<String, dynamic> lang;
+  final LanguageModel lang;
   final TextStyle titleTextStyle;
   final TextStyle descTextStyle;
 
@@ -115,9 +163,9 @@ class LangElement extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(lang["language"], style: titleTextStyle),
-          if ("${lang["eng_name"]}".toLowerCase() != engLang.toLowerCase())
-            Text("(${lang["eng_name"]})", style: descTextStyle),
+          Text(lang.language!, style: titleTextStyle),
+          if (lang.engName!.toLowerCase() != engLang.toLowerCase())
+            Text("(${lang.engName})", style: descTextStyle),
         ],
       ),
     );
