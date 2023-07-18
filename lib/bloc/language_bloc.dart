@@ -28,7 +28,7 @@ class LanguageNotifier extends StateNotifier<List<LanguageModel>> {
 
   updateList(LanguageModel selectedModel) {
     final tempList = state.toList();
-    // var updateItem = LanguageModel(isSelected: !selectedModel.isSelected!);
+    
     final selectedIndex =
         tempList.indexWhere((item) => item.language == selectedModel.language);
 

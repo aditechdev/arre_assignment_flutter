@@ -25,18 +25,9 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
   @override
   void initState() {
     _getAppVersion();
-    // context.read(languageProvider.notifier).fetchLanguage();
-
-    // languageNotifier.fetchLanguage();
-    // fetchData();
-    // context!.read(languageprovider.notifier).
 
     super.initState();
   }
-
-  // fetchData() async{
-  //    await languageNotifier.fetchLanguage();
-  // }
 
   _getAppVersion() async {
     String v = await systemBloc.getAppVersion();
