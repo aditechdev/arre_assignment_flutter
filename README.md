@@ -1,7 +1,7 @@
 # arre_assignment_flutter
 A Flutter app for interviews, In this project I have converted figma design to dart code
 
-#App info
+### App info
 Flutter Version: Flutter 3.10.6
 Dart Version: 3.0.6
 
