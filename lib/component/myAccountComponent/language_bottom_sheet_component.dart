@@ -1,5 +1,6 @@
 import 'package:arre_assignment_flutter/config/theme/abstract_theme.dart';
 import 'package:arre_assignment_flutter/config/theme/theme_manager.dart';
+import 'package:arre_assignment_flutter/data/language_list.dart';
 import 'package:flutter/material.dart';
 import 'package:arre_assignment_flutter/config/text_style.dart' as tstyle;
 
@@ -77,8 +78,10 @@ class LangaugeGridComponent extends StatelessWidget {
         crossAxisSpacing: 20,
         mainAxisSpacing: 31,
       ),
-      itemCount: 7,
+      itemCount: languageList.length,
       itemBuilder: (context, index) {
+        var lang = languageList[index];
+
         return Stack(
           clipBehavior: Clip.none,
           children: [
@@ -92,10 +95,10 @@ class LangaugeGridComponent extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('Item $index',
+                    Text(lang["language"],
                         style: setStyle(index: index, isTitile: true)),
-                    if (index != 0)
-                      Text('Item $index',
+                    if (lang["eng_name"].toString().toLowerCase() != "english")
+                      Text("(${lang["eng_name"]})",
                           style: setStyle(index: index, isTitile: false)),
                   ],
                 ),
