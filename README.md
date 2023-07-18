@@ -115,12 +115,6 @@ lib
     [Project begins Here]
 ```
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
 
 
 [Download APK](https://drive.google.com/file/d/1Vqet3MmWPSgruYVPWnABZ9TnBqGogwBb/view?usp=sharing)
