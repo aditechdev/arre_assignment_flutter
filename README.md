@@ -10,10 +10,13 @@ Dart Version: 3.0.6
 ```
 lib
 ├── bloc 🤓 => The file contains the logic
+│   │
 │   ├── languages_bloc.dart 
 │   │   [Contains the logic to maintain the local state of the App to select the language by reverpod]
+│   │
 │   ├── splash_bloc.dart
-│   │   [Contains the logic for splash screen, eg: hiding/showing status bar, naviagte]
+│   │   [Contains the logic for splash screen, eg: hiding/showing status bar, navigate]
+│   │
 │   └── system_bloc.dart
 │       [Contains basic global configuration for the app]
 │
