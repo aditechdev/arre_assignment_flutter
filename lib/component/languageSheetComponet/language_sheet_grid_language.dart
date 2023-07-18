@@ -13,7 +13,6 @@ class LangaugeGridComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String engLang = "english";
     Color isActive(int index) {
       var c = (index == 0)
           ? th.languageSheetActiveColor
@@ -50,44 +49,77 @@ class LangaugeGridComponent extends StatelessWidget {
                   color: th.langaugeSheetBoxColor,
                   border: Border.all(color: isActive(index)),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(lang["language"],
-                        style: setStyle(index: index, isTitile: true)),
-                    if (lang["eng_name"].toString().toLowerCase() != engLang)
-                      Text("(${lang["eng_name"]})",
-                          style: setStyle(index: index, isTitile: false)),
-                  ],
-                ),
+              child: LangElement(
+                lang: lang,
+                descTextStyle: setStyle(index: index, isTitile: false),
+                titleTextStyle: setStyle(index: index, isTitile: true),
               ),
             ),
-            if (index == 0)
-              Positioned(
-                top: -5,
-                right: -5,
-                child: Container(
-                  padding: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: th.scaffoldBackgroundColor,
-                    border: Border.all(
-                      color: th.languageSheetActiveColor,
-                      width: 1,
-                    ),
-                  ),
-                  child: Icon(
-                    Icons.check,
-                    size: 12,
-                    color: th.languageSheetActiveColor,
-                  ),
-                ),
-              )
+            if (index == 0) CheckWidget(th: th)
           ],
         );
       },
+    );
+  }
+}
+
+class CheckWidget extends StatelessWidget {
+  const CheckWidget({
+    super.key,
+    required this.th,
+  });
+
+  final ColorTheme th;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: -5,
+      right: -5,
+      child: Container(
+        padding: const EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: th.scaffoldBackgroundColor,
+          border: Border.all(
+            color: th.languageSheetActiveColor,
+            width: 1,
+          ),
+        ),
+        child: Icon(
+          Icons.check,
+          size: 12,
+          color: th.languageSheetActiveColor,
+        ),
+      ),
+    );
+  }
+}
+
+class LangElement extends StatelessWidget {
+  const LangElement(
+      {super.key,
+      required this.lang,
+      required this.titleTextStyle,
+      required this.descTextStyle});
+  final Map<String, dynamic> lang;
+  final TextStyle titleTextStyle;
+  final TextStyle descTextStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    const String engLang = "english";
+
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(lang["language"], style: titleTextStyle),
+          if (lang["eng_name"].toString().toLowerCase() != engLang)
+            Text("(${lang["eng_name"]})", style: descTextStyle),
+        ],
+      ),
     );
   }
 }
