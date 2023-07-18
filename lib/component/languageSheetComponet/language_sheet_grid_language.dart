@@ -71,43 +71,6 @@ class LangaugeGridComponent extends ConsumerWidget {
         );
       },
     );
-    // error: (error, stackTrace) => Text('Error fetching data: $error'),
-    // loading: () => const CircularProgressIndicator());
-
-    // return languageValue.when(
-    // data: (languages) {
-    // return GridView.builder(
-    //   shrinkWrap: true,
-    //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-    //     crossAxisCount: 3,
-    //     childAspectRatio: 4 / 2,
-    //     crossAxisSpacing: 20,
-    //     mainAxisSpacing: 31,
-    //   ),
-    //   itemCount: languageValue.length,
-    //   itemBuilder: (context, index) {
-    //     var lang = languageValue[index];
-
-    //     return Stack(
-    //       clipBehavior: Clip.none,
-    //       children: [
-    //         Container(
-    //           decoration: BoxDecoration(
-    //               color: th.langaugeSheetBoxColor,
-    //               border: Border.all(color: isActive(index)),
-    //               borderRadius:
-    //                   const BorderRadius.all(Radius.circular(8))),
-    //           child: LangElement(
-    //             lang: lang,
-    //             descTextStyle: setStyle(index: index, isTitile: false),
-    //             titleTextStyle: setStyle(index: index, isTitile: true),
-    //           ),
-    //         ),
-    //         if (index == 0) CheckWidget(th: th)
-    //       ],
-    //     );
-    //   },
-    // );
   }
 }
 
