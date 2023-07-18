@@ -43,6 +43,26 @@ class CommonUtils {
       ),
     );
   }
+
+  showWorkInProgressSnackBar({
+    VoidCallback? onVisible,
+    int seconds = 1,
+  }) {
+    final messenger = scaffoldMessengerKey.currentState;
+    messenger?.showSnackBar(
+      SnackBar(
+        duration: Duration(seconds: seconds),
+        content: Text(
+          // textAlign: TextAlign.center,
+          "⚠️ Work in Progress 🚧",
+          style: const TextStyle(
+            color: Color.fromARGB(255, 255, 255, 255),
+          ),
+        ),
+        backgroundColor: Color.fromARGB(255, 234, 130, 92),
+      ),
+    );
+  }
 }
 
 CommonUtils cUtils = CommonUtils();

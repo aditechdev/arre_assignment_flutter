@@ -33,7 +33,7 @@ class _MyAccountScreenState extends ConsumerState<MyAccountScreen> {
   }
 
   _asyncMethod() async {
-   await ref.read(languageprovider.notifier).fetchList();
+    await ref.read(languageprovider.notifier).fetchList();
   }
 
   _getAppVersion() async {
@@ -43,11 +43,15 @@ class _MyAccountScreenState extends ConsumerState<MyAccountScreen> {
     });
   }
 
-  showLangueEditBottomSheet() {
+  void showLangueEditBottomSheet() {
     // ref.read(languageprovider.notifier).fetchList();
     cUtils.showBottomSheet(
         context: context,
         bottomSheetComponent: const wid.LanguageBottomSheetComponent());
+  }
+
+  notImplemented() {
+    cUtils.showWorkInProgressSnackBar();
   }
 
   @override
@@ -67,50 +71,50 @@ class _MyAccountScreenState extends ConsumerState<MyAccountScreen> {
               wid.CustomElevatedButtonWidget(
                 prefixIcon: AssetIcon.communityCodeOfConductIcon,
                 title: "Community Code of Conduct",
-                onTap: () {},
+                onTap: notImplemented,
               ),
               wid.CustomElevatedButtonWidget(
                 prefixIcon: AssetIcon.helpCenterIcon,
                 title: "Help Center",
-                onTap: () {},
+                onTap: notImplemented,
               ),
               Consumer(
                 builder: (BuildContext context, WidgetRef ref, Widget? child) {
                   return wid.CustomElevatedButtonWidget(
-                      prefixIcon: AssetIcon.editMyLanguageIcon,
-                      title: "Edit My Languages",
-                      onTap: () {
-                        showLangueEditBottomSheet();
-                      });
+                    prefixIcon: AssetIcon.editMyLanguageIcon,
+                    title: "Edit My Languages",
+                    onTap: showLangueEditBottomSheet,
+                  );
                 },
               ),
               wid.CustomSwitchComponent(
                 title: "Customize Interface",
                 onTap: (v) {
                   clog.checkSuccess(v, "Switch Value");
+                  notImplemented();
                 },
               ),
 
               wid.CustomTextButtonWidget(
                 title: "Terms of Service",
-                onTap: () {},
+                onTap: notImplemented,
               ),
               wid.CustomTextButtonWidget(
                 title: "Privacy Policy",
-                onTap: () {},
+                onTap: notImplemented,
               ),
               wid.CustomTextButtonWidget(
                 title: "Temporarily Deactivate My Account",
-                onTap: () {},
+                onTap: notImplemented,
               ),
               wid.CustomTextButtonWidget(
                 title: "Permanent Delete My Account",
-                onTap: () {},
+                onTap: notImplemented,
               ),
               wid.CustomElevatedButtonWidget(
                 prefixIcon: AssetIcon.logOutIcon,
                 title: "Logout",
-                onTap: () {},
+                onTap: notImplemented,
               ),
               // const CustomSwitch(),
               const Spacer(),
