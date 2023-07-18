@@ -116,7 +116,7 @@ class LangElement extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(lang["language"], style: titleTextStyle),
-          if (lang["eng_name"].toString().toLowerCase() != engLang)
+          if ("${lang["eng_name"]}".toLowerCase() != engLang.toLowerCase())
             Text("(${lang["eng_name"]})", style: descTextStyle),
         ],
       ),
