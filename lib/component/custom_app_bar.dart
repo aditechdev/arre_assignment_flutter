@@ -1,6 +1,7 @@
 import 'package:arre_assignment_flutter/config/r.dart';
 import 'package:arre_assignment_flutter/config/text_style.dart' as tstyle;
 import 'package:arre_assignment_flutter/config/theme/theme_manager.dart';
+import 'package:arre_assignment_flutter/cors/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -31,6 +32,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     width: 34,
                   ),
                   onPressed: () {
+                    cUtils.showNegativeSnackBar(message: "Stack is Empty");
                     // Handle back button press
                   },
                 ),
