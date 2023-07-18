@@ -18,4 +18,21 @@ abstract class ColorTheme {
 
   //Other
   Color get versionTextColor;
+
+  //bottomsheet
+  Color get bottomSheetBackgroundColor;
+  Color get bottomSheetTitleTextColor;
+  Color get bottomSheetDescTextColor;
+  Color get bottomSheetDragHandlerColor;
+  Color get bottomSheetPositiveBtnBackground;
+  Color get bottomSheetPositiveBtnTextColor;
+  Color get bottomSheetNegativeBtnTextColor;
+  
+
+  // BootomSheet Language Selection
+  Color get languageSheetActiveColor;
+  Color get languageSheetInactiveColor;
+  Color get langaugeSheetBoxColor;
+  Color get languageSheetInactiveTitleColor;
+  Color get languageSheetInactiveDescriptionColor;
 }

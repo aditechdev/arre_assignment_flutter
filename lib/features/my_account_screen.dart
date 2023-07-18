@@ -1,10 +1,10 @@
 import 'package:arre_assignment_flutter/bloc/system_bloc.dart';
 import 'package:arre_assignment_flutter/component/custom_app_bar.dart';
-import 'package:arre_assignment_flutter/component/myAccountComponent/my_account__component_lib.dart'
+import 'package:arre_assignment_flutter/component/myAccountComponent/my_account_component_lib.dart'
     as wid;
 import 'package:arre_assignment_flutter/config/r.dart';
 import 'package:arre_assignment_flutter/config/text_style.dart' as tstyle;
-import 'package:arre_assignment_flutter/config/theme/theme_manager.dart';
+import 'package:arre_assignment_flutter/cors/common_utils.dart';
 import 'package:color_log/color_log.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -33,9 +33,15 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
     });
   }
 
+  showLangueEditBottomSheet() {
+    cUtils.showBottomSheet(
+        context: context,
+        bottomSheetComponent: const wid.LanguageBottomSheetComponent());
+  }
+
   @override
   Widget build(BuildContext context) {
-    var th = theme.currentTheme;
+    // var th = theme.currentTheme;
 
     return SafeArea(
       child: Scaffold(
@@ -60,7 +66,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
               wid.CustomElevatedButtonWidget(
                 prefixIcon: AssetIcon.editMyLanguageIcon,
                 title: "Edit My Languages",
-                onTap: () {},
+                onTap: showLangueEditBottomSheet,
               ),
               wid.CustomSwitchComponent(
                 title: "Customize Interface",

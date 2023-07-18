@@ -47,6 +47,17 @@ class MyAppTheme {
               borderRadius: BorderRadius.circular(8),
             ),
           ),
+        ),
+        bottomSheetTheme: BottomSheetThemeData(
+          showDragHandle: true,
+          dragHandleColor: th.bottomSheetDragHandlerColor,
+          backgroundColor: th.bottomSheetBackgroundColor,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(24),
+              topRight: Radius.circular(24),
+            ),
+          ),
         ));
   }
 }
