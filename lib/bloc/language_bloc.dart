@@ -41,6 +41,11 @@ class LanguageNotifier extends StateNotifier<List<LanguageModel>> {
     }
   }
 
+  finalUpdate() {
+    tempSelectedList = [];
+    tempSelectedList = state;
+  }
+
   clearTempList() {
     state = tempSelectedList;
   }

@@ -11,22 +11,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MyAccountScreen extends StatefulWidget {
+class MyAccountScreen extends ConsumerStatefulWidget {
   const MyAccountScreen({
     super.key,
   });
 
   @override
-  State<MyAccountScreen> createState() => _MyAccountScreenState();
+  ConsumerState<MyAccountScreen> createState() => _MyAccountScreenState();
 }
 
-class _MyAccountScreenState extends State<MyAccountScreen> {
+class _MyAccountScreenState extends ConsumerState<MyAccountScreen> {
   String _version = "";
   @override
   void initState() {
     _getAppVersion();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _asyncMethod();
+    });
 
     super.initState();
+  }
+
+  _asyncMethod() async {
+    await ref.read(languageprovider.notifier).fetchList();
   }
 
   _getAppVersion() async {
@@ -36,13 +43,15 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
     });
   }
 
-  showLangueEditBottomSheet(
-    WidgetRef ref,
-  ) {
-    ref.read(languageprovider.notifier).fetchList();
+  void showLangueEditBottomSheet() {
+    // ref.read(languageprovider.notifier).fetchList();
     cUtils.showBottomSheet(
         context: context,
         bottomSheetComponent: const wid.LanguageBottomSheetComponent());
+  }
+
+  notImplemented() {
+    cUtils.showWorkInProgressSnackBar();
   }
 
   @override
@@ -115,7 +124,7 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                               prefixIcon: AssetIcon.editMyLanguageIcon,
                               title: "Edit My Languages",
                               onTap: () {
-                                showLangueEditBottomSheet(ref);
+                                showLangueEditBottomSheet();
                               },
                             );
                           },
