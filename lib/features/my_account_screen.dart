@@ -54,74 +54,124 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
         appBar: const CustomAppBar(
           appBarTitle: "My Account",
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 9),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              wid.CustomElevatedButtonWidget(
-                prefixIcon: AssetIcon.communityCodeOfConductIcon,
-                title: "Community Code of Conduct",
-                onTap: () {},
+        body: CustomScrollView(
+          slivers: [
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 9),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate(
+                  [
+                    Column(
+                      children: [
+                        wid.CustomElevatedButtonWidget(
+                          prefixIcon: AssetIcon.communityCodeOfConductIcon,
+                          title: "Community Code of Conduct",
+                          onTap: () {},
+                        ),
+                        wid.CustomElevatedButtonWidget(
+                          prefixIcon: AssetIcon.communityCodeOfConductIcon,
+                          title: "Community Code of Conduct",
+                          onTap: () {},
+                        ),
+                        wid.CustomElevatedButtonWidget(
+                          prefixIcon: AssetIcon.communityCodeOfConductIcon,
+                          title: "Community Code of Conduct",
+                          onTap: () {},
+                        ),
+                        wid.CustomElevatedButtonWidget(
+                          prefixIcon: AssetIcon.communityCodeOfConductIcon,
+                          title: "Community Code of Conduct",
+                          onTap: () {},
+                        ),
+                        wid.CustomElevatedButtonWidget(
+                          prefixIcon: AssetIcon.communityCodeOfConductIcon,
+                          title: "Community Code of Conduct",
+                          onTap: () {},
+                        ),
+                        wid.CustomElevatedButtonWidget(
+                          prefixIcon: AssetIcon.communityCodeOfConductIcon,
+                          title: "Community Code of Conduct",
+                          onTap: () {},
+                        ),
+                        wid.CustomElevatedButtonWidget(
+                          prefixIcon: AssetIcon.communityCodeOfConductIcon,
+                          title: "Community Code of Conduct",
+                          onTap: () {},
+                        ),
+                        wid.CustomElevatedButtonWidget(
+                          prefixIcon: AssetIcon.communityCodeOfConductIcon,
+                          title: "Community Code of Conduct",
+                          onTap: () {},
+                        ),
+                        wid.CustomElevatedButtonWidget(
+                          prefixIcon: AssetIcon.helpCenterIcon,
+                          title: "Help Center",
+                          onTap: () {},
+                        ),
+                        Consumer(
+                          builder: (BuildContext context, WidgetRef ref,
+                              Widget? child) {
+                            return wid.CustomElevatedButtonWidget(
+                              prefixIcon: AssetIcon.editMyLanguageIcon,
+                              title: "Edit My Languages",
+                              onTap: () {
+                                showLangueEditBottomSheet(ref);
+                              },
+                            );
+                          },
+                        ),
+                        wid.CustomSwitchComponent(
+                          title: "Customize Interface",
+                          onTap: (v) {
+                            clog.checkSuccess(v, "Switch Value");
+                          },
+                        ),
+                        wid.CustomTextButtonWidget(
+                          title: "Terms of Service",
+                          onTap: () {},
+                        ),
+                        wid.CustomTextButtonWidget(
+                          title: "Privacy Policy",
+                          onTap: () {},
+                        ),
+                        wid.CustomTextButtonWidget(
+                          title: "Temporarily Deactivate My Account",
+                          onTap: () {},
+                        ),
+                        wid.CustomTextButtonWidget(
+                          title: "Permanent Delete My Account",
+                          onTap: () {},
+                        ),
+                        wid.CustomElevatedButtonWidget(
+                          prefixIcon: AssetIcon.logOutIcon,
+                          title: "Logout",
+                          onTap: () {},
+                        ),
+                        const SizedBox(height: 51),
+                      ],
+                    ), // Empty space after the Logout button
+                  ],
+                ),
               ),
-              wid.CustomElevatedButtonWidget(
-                prefixIcon: AssetIcon.helpCenterIcon,
-                title: "Help Center",
-                onTap: () {},
+            ),
+            SliverFillRemaining(
+              fillOverscroll: true,
+              hasScrollBody: false,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  // const Spacer(),
+                  SvgPicture.asset(AssetSvg.appLogo),
+                  const SizedBox(height: 16),
+                  Text(
+                    "Version $_version",
+                    style: tstyle.versionTextStyle,
+                  ),
+                  const SizedBox(height: 24),
+                ],
               ),
-              Consumer(
-                builder: (BuildContext context, WidgetRef ref, Widget? child) {
-                  return wid.CustomElevatedButtonWidget(
-                      prefixIcon: AssetIcon.editMyLanguageIcon,
-                      title: "Edit My Languages",
-                      onTap: () {
-                        showLangueEditBottomSheet(ref);
-                      });
-                },
-              ),
-              wid.CustomSwitchComponent(
-                title: "Customize Interface",
-                onTap: (v) {
-                  clog.checkSuccess(v, "Switch Value");
-                },
-              ),
-
-              wid.CustomTextButtonWidget(
-                title: "Terms of Service",
-                onTap: () {},
-              ),
-              wid.CustomTextButtonWidget(
-                title: "Privacy Policy",
-                onTap: () {},
-              ),
-              wid.CustomTextButtonWidget(
-                title: "Temporarily Deactivate My Account",
-                onTap: () {},
-              ),
-              wid.CustomTextButtonWidget(
-                title: "Permanent Delete My Account",
-                onTap: () {},
-              ),
-              wid.CustomElevatedButtonWidget(
-                prefixIcon: AssetIcon.logOutIcon,
-                title: "Logout",
-                onTap: () {},
-              ),
-              // const CustomSwitch(),
-              const Spacer(),
-              SvgPicture.asset(AssetSvg.appLogo),
-              const SizedBox(
-                height: 16,
-              ),
-              Text(
-                "Version $_version",
-                style: tstyle.versionTextStyle,
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
