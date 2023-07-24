@@ -156,7 +156,7 @@ class _MyAccountScreenState extends ConsumerState<MyAccountScreen> {
                           title: "Logout",
                           onTap: () {},
                         ),
-                        // const SizedBox(height: 51),
+                        const SizedBox(height: 51),
                       ],
                     ), // Empty space after the Logout button
                   ],
